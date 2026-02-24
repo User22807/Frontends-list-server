@@ -1,0 +1,15 @@
+{
+  "name": "frontends-list-server",
+  "version": "1.0.0",
+  "description": "Express server for frontend data scraping",
+  "main": "datascrape.js",
+  "scripts": {
+    "start": "node datascrape.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^2.6.7"
+  },
+  "author": "",
+  "license": "ISC"
+}
