@@ -4,6 +4,12 @@ const fetch = require('node-fetch'); // If using Node 18+, you can remove this l
 const app = express();
 const PORT = 3000;
 
+// Add CORS middleware
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+});
+
 app.get('/api/frontend-data', async (req, res) => {
     const endpoint = "https://intent.symmscan.com/api/history/bucket/affiliate";
     const now = Math.floor(Date.now() / 1000);
@@ -18,7 +24,6 @@ app.get('/api/frontend-data', async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch data' });
     }
 });
-
 
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
